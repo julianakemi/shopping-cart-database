@@ -6,6 +6,13 @@ from src.controllers.address import addresses_crud
 # from src.controllers.cart import cart_crud
 
 loop = asyncio.get_event_loop()
-loop.run_until_complete(users_crud())
-#loop.run_until_complete(products_crud())
-loop.run_until_complete(addresses_crud())
+
+option = input("\nSelect an option:\n 1 - Users\n 2 - Products\n 3 - Addresses\n 4 - Exit\n")
+if option == '1':
+    loop.run_until_complete(users_crud())
+elif option == '2':
+    loop.run_until_complete(products_crud())
+elif option == '3':
+    loop.run_until_complete(addresses_crud())
+elif option == '4':
+    exit()

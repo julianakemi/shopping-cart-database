@@ -3,7 +3,8 @@ from motor.motor_asyncio import AsyncIOMotorClient
 
 class DataBase:
     client: AsyncIOMotorClient = None
-    database_uri = ''
+    #database_uri = environ.get("DATABASE_URI")
+    database_uri = 'mongodb+srv://julianakemide:88bBFYjQDNewGZ@luizacode.1cduc35.mongodb.net/?retryWrites=true&w=majority'
     users_collection = None
     addresses_collection = None
     products_collection = None
@@ -30,10 +31,10 @@ async def connect_db():
     db.carts_collection = db.client.carts_collection
     db.cart_itens_collection = db.client.cart_itens_collection
 
-    try:
-        print(await db.client.server_info())
-    except Exception:
-        print("Unable to connect to the server.")
+    # try:
+    #     print(await db.client.server_info())
+    # except Exception:
+    #     print("Unable to connect to the server.")
 
 async def disconnect_db():
     db.client.close()
